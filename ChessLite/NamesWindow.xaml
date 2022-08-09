@@ -1,0 +1,23 @@
+﻿<Window x:Class="ChessLite.NamesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChessLite"
+        mc:Ignorable="d"
+        Title="Игроки" Height="255" Width="325" WindowStyle="None"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <StackPanel x:Name="NameStackPanel"
+                VerticalAlignment="Center">
+        <TextBlock Text="Введите имя первого игрока:"/>
+        <TextBox x:Name="Name1_txtBlock" TextChanged="txtBlock_TextChanged" Margin="15,0"/>
+            
+
+        <TextBlock Text="Введите имя второго игрока:"/>
+        <TextBox x:Name="Name2_txtBlock" TextChanged="txtBlock_TextChanged" Margin="15,0"/>
+        
+        <Button x:Name="btn" Content="Подтвердить" Margin="5" Click="Button_Click" IsEnabled="False"/>
+        <Button Content="Назад" Margin="5" Click="Button_Click_1"/>
+    </StackPanel>
+</Window>

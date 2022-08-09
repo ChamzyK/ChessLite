@@ -1,0 +1,114 @@
+﻿<Window x:Class="ChessLite.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChessLite"
+        mc:Ignorable="d"
+        Title="ChessLite" Height="600" Width="750"
+        MinHeight="500"
+        MinWidth="550"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+
+        <Grid.Resources>
+            <Style TargetType="Border">
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="BorderThickness" Value="3"/>
+                <Setter Property="Background" Value="#FF45E845"/>
+            </Style>
+        </Grid.Resources>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="80*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+
+            <Border Background="{Binding ElementName=Player1_txtBlock, Path=Background}">
+                <TextBlock x:Name="Player1_txtBlock" Background="Gray"/>
+            </Border>
+
+            <Border
+                Grid.Column="0"
+                Grid.Row="1"
+                Name="boardBorder"
+                Background="#8D4913">
+
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="93*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="93*"/>
+                        <RowDefinition Height="7*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid   Name="boardGrid"
+                            Grid.Column="1"
+                            MouseDown="boardGrid_MouseDown"/>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="2" Background="{Binding ElementName=Player2_txtBlock, Path=Background}">
+                <TextBlock x:Name="Player2_txtBlock" Background="Gray"/>
+            </Border>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="Start_btn"
+                    Grid.Row="0"
+                    Content="Новая игра"
+                    Click="Start_btn_Click"/>
+            
+            <Button x:Name="Menu_btn"
+                    Grid.Row="1"
+                    Content="Меню"
+                    Click="Menu_btn_Click"/>
+            
+            <Button x:Name="Back_btn"
+                    Grid.Row="2"
+                    Content="Отменить"
+                    Click="TurnBack_Click"/>
+            
+            <Border Grid.Row="3"
+                    x:Name="listBox_border"
+                    Background="Yellow">
+                <ListBox x:Name="TurnHistory_lstBox" 
+                         HorizontalContentAlignment="Center"
+                         BorderThickness="0" 
+                         Background="{Binding ElementName=listBox_border, Path=Background}">
+                </ListBox>
+            </Border>
+
+            <Border Grid.Row ="4"
+                    Background="Yellow">
+                <TextBlock x:Name="TurnCount_txtBlock" Background="{Binding ElementName=listBox_border, Path=Background}"/>
+            </Border>
+
+        </Grid>
+        
+    </Grid>
+</Window>
